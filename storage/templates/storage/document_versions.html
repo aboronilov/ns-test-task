@@ -20,7 +20,7 @@
                     <p class="text-base text-neutral-900">Активен</p>
                 {% endif %}
             </div>
-            {% if document.content == previous_version.content and document.name == previous_version.name and document.is_deleted == previous_version.is_deleted %}
+            {% if document.content == previous_version.content and document.name == previous_version.name %}
                 <h1 class="font-bold text-lg text-neutral-600 mb-8 flex justify-center">История правок отсутсвует</h1>
             {% else %}
                 <h1 class="font-bold text-lg text-neutral-600 mb-8 flex justify-center">Предыдущая версия</h1>

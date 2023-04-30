@@ -16,14 +16,14 @@
 * [Django](https://www.djangoproject.com/)
 
 ### Frontend
-* [Django](https://django-tailwind.readthedocs.io/en/latest)
+* [Django-tailwind](https://django-tailwind.readthedocs.io/en/latest)
 
 ## Приложение развернуто [здесь](https://nsign-test-task.onrender.com/) 
 
 ## Функционал
 
 1. Основная страница с Navbar (также доступен на остальных стрницах). При нажатии на левый логотип произойдет переход на основную страницу
-
+    
 ![Landing page](https://github.com/aboronilov/ns-test-task/blob/main/theme/static/images/list.png)
 
 2. Кнопка *Создать документ* активна. При её нажатии откроется соотвествующая форма
