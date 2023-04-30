@@ -42,11 +42,11 @@
 
 5. Кнопка *Версии* открывает страницу со сравнением актуальной версии и предыдущей. Если есть изменения по названию или по содержанию, выдается сверка:
 
-![Landing page](https://github.com/aboronilov/estate/blob/main/client/src/assets/screenshots/1.png)
+![Landing page](https://github.com/aboronilov/ns-test-task/blob/main/theme/static/images/versions-yes.png)
 
 Если изменений нет или данная версия единственная (не имеет предшественников) - выдается оповещение
 
-![Landing page](https://github.com/aboronilov/estate/blob/main/client/src/assets/screenshots/1.png)
+![Landing page](https://github.com/aboronilov/ns-test-task/blob/main/theme/static/images/no-version.png)
 
 
 
