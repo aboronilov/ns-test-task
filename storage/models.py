@@ -27,7 +27,6 @@ class Document(models.Model):
         verbose_name = "Document"
         verbose_name_plural = "Documents"
 
-# 17a6758f-22fa-4ddc-b031-bd8985000c16
 
 class DocumentVersion(models.Model):
     document = models.ForeignKey(

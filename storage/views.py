@@ -93,7 +93,8 @@ def get_document_versions(request, *args, **kwargs):
        "document": document,
        "previous_version": previous_version,
    }    
-   print(document)
-   print(previous_version)
+   print(document.name, previous_version.name)
+   print(document.content, previous_version.content)
+   print(document.is_deleted, previous_version.is_deleted)
    return render(request, "storage/document_versions.html", context=context)
 
