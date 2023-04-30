@@ -84,6 +84,7 @@ def get_document_versions(request, *args, **kwargs):
    document = get_object_or_404(Document, id=document_id)
    
    latest_version = DocumentVersion.objects.filter(uuid=document.uuid).last()
+   
    if latest_version.version == 1:
        previous_version = latest_version
    else:
@@ -91,6 +92,8 @@ def get_document_versions(request, *args, **kwargs):
    context = {
        "document": document,
        "previous_version": previous_version,
-   }
+   }    
+   print(document)
+   print(previous_version)
    return render(request, "storage/document_versions.html", context=context)
 
