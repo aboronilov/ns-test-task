@@ -1,0 +1,95 @@
+{% extends 'storage/base.html' %}
+
+{% block title %}
+    {{document.name}}
+{% endblock title %}
+
+{% block content %}
+        {% include 'storage/partials/navbar.html' %}
+        <div class="max-w-4xl mx-auto bg-white mt-10 shadow-md p-10">
+            <div class="flex flex-col gap-4 ">
+                <p class="font-bold text-lg text-blue-800">Название</p>
+                <p class="text-base text-neutral-900">{{document.name}}</p>
+                <p class="font-bold text-lg text-blue-800">Содержание</p>
+                <p class="text-base text-neutral-900">{{document.content}}</p>
+                <p class="font-bold text-lg text-blue-800">Статус</p>
+                {% if document.is_deleted %}
+                    <p class="text-base text-neutral-900">Помечен на удаление</p>
+                {% else %}
+                    <p class="text-base text-neutral-900">Активен</p>
+                {% endif %}
+            </div>
+
+            <div class="flex justify-start gap-4 items-center mt-8">
+                <a href="{% url 'update_document' document_id=document.id %}">
+                    <button class="
+                        cursor-pointer 
+                        p-2 
+                        text-xs md:text-sm 
+                        bg-gradient-to-b 
+                        from-yellow-200 
+                        to-yellow-400 border 
+                        border-yellow-300 
+                        rounded-sm 
+                        focus:outline-none 
+                        focus:ring-2 
+                        focus:ring-yellow-500 
+                        active:from-yellow-500 
+                        hover:opacity-80 
+                        transition 
+                        duration-300 
+                        ease-in-out
+                        w-28
+                    ">
+                        Изменить
+                    </button>
+                </a>
+                <a href="{% url 'delete_document' document_id=document.id %}">
+                    <button class="
+                        cursor-pointer 
+                        p-2 
+                        text-xs md:text-sm 
+                        bg-gradient-to-b 
+                        from-yellow-200 
+                        to-yellow-400 border 
+                        border-yellow-300 
+                        rounded-sm 
+                        focus:outline-none 
+                        focus:ring-2 
+                        focus:ring-yellow-500 
+                        active:from-yellow-500 
+                        hover:opacity-80 
+                        transition 
+                        duration-300 
+                        ease-in-out
+                        w-28
+                    ">
+                        {% if document.is_deleted %}Восстановить{% else %}Удалить{% endif %}                        
+                    </button>
+                </a>
+                <a href="{% url 'compare_versions' document_id=document.id %}">
+                    <button class="
+                        cursor-pointer 
+                        p-2 
+                        text-xs md:text-sm 
+                        bg-gradient-to-b 
+                        from-yellow-200 
+                        to-yellow-400 border 
+                        border-yellow-300 
+                        rounded-sm 
+                        focus:outline-none 
+                        focus:ring-2 
+                        focus:ring-yellow-500 
+                        active:from-yellow-500 
+                        hover:opacity-80 
+                        transition 
+                        duration-300 
+                        ease-in-out
+                        w-28
+                    ">
+                        Версии
+                    </button>
+                </a>
+            </div>
+        </div>
+{% endblock content %}

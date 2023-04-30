@@ -1,0 +1,27 @@
+{% load static %}
+
+<nav class="flex justify-between items-center py-3 px-6 w-full bg-neutral-800">
+    <a href="{% url 'list_documents' %}">
+        <img 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRirigBQPGDZhsXuWfXmwXDYKju-iZhVPU_Gg&usqp=CAU" 
+            alt="logo" 
+            class="h-8 w-8 hover:opacity-80 transition duration-300 ease-in-out"
+        >
+    </a>
+    <a href="{% url 'create_document'%}">
+        <div class="text-white cursor-pointer hover:text-yellow-400 hover:shadow-md hover:opacity-90 transition duration-300 ease-in-out">
+            Создать документ
+        </div>
+    </a>
+    <div class="flex items-center justify-between gap-4">
+        <a href="https://vk.com/" target="_blank" class="hover:opacity-80 transition duration-300 ease-in-out">
+            <img src="data:image/png;base64,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" class="w-6 h-6">
+        </a>
+        <a href="https://twitter.com" target="_blank" class="hover:opacity-80 transition duration-300 ease-in-out">
+            <img src="https://icon-library.com/images/twitter-icon-black-background/twitter-icon-black-background-8.jpg" class="w-6 h-6">
+        </a>
+        <a href="https://youtube.com" target="_blank" class="hover:opacity-80 transition duration-300 ease-in-out">
+            <img src="https://png.pngitem.com/pimgs/s/20-200648_youtube-black-icon-png-image-free-download-searchpng.png" class="w-6 h-6">
+        </a>
+    </div>
+</nav>

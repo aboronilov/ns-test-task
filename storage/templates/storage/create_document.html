@@ -1,0 +1,91 @@
+{% extends 'storage/base.html' %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
+
+{% block title %}
+    Create document
+{% endblock title %}
+
+{% block content %}
+        {% include 'storage/partials/navbar.html' %}
+        <div class="max-w-4xl mx-auto bg-white mt-10 shadow-md p-10">
+            <div class="font-bold text-lg text-neutral-600 mb-8 flex justify-center">Добавление документа</div>
+            <form action="{% url 'create_document' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <div class="form-error">{{ form.non_field_errors }}</div>
+                    {% for f in form %}
+                        <div class="p-2">
+                            <label for="{{ f.id_for_label }}">{{f.label}}: </label> {{ f }}
+                        </div>
+                        <div class="text-sm text-red-400">{{ f.errors }}</div>
+                    {% endfor %} 
+
+                    <div class="flex justify-center">
+                        <button class="
+                            cursor-pointer 
+                            p-2 
+                            text-xs md:text-sm 
+                            bg-gradient-to-b 
+                            from-yellow-200 
+                            to-yellow-400 border 
+                            border-yellow-300
+                            rounded-sm 
+                            focus:outline-none 
+                            focus:ring-2 
+                            focus:ring-yellow-500 
+                            active:from-yellow-500 
+                            hover:opacity-80 
+                            transition 
+                            duration-300 
+                            ease-in-out
+                            w-28
+                        ">
+                            Отправить
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div>
+            {% comment %} {% crispy form %} {% endcomment %}
+            {% comment %} <form action="{% url 'create_document' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <div class="form-error">{{ form.non_field_errors }}</div>
+                    {% for f in form %}
+                        <div class="p-2">
+                            <div class="font-bold mb-2">
+                                <label for="{{ f.id_for_label }}">{{f.label}}: </label>
+                            </div>
+                            <div class="bg-gray-100 border">{{ f }}</div>
+                        </div>
+                        <div class="text-sm text-red-400">{{ f.errors }}</div>
+                    {% endfor %} 
+
+                    <div class="flex justify-center">
+                        <button class="
+                            cursor-pointer 
+                            p-2 
+                            text-xs md:text-sm 
+                            bg-gradient-to-b 
+                            from-yellow-200 
+                            to-yellow-400 border 
+                            border-yellow-300
+                            rounded-sm 
+                            focus:outline-none 
+                            focus:ring-2 
+                            focus:ring-yellow-500 
+                            active:from-yellow-500 
+                            hover:opacity-80 
+                            transition 
+                            duration-300 
+                            ease-in-out
+                            w-28
+                        ">
+                            Отправить
+                        </button>
+                    </div>
+                </div>
+            </form> {% endcomment %}
+        </div>
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'storage/base.html' %}
+
+{% block title %}
+    {{document.name}} versions
+{% endblock title %}
+
+{% block content %}
+        {% include 'storage/partials/navbar.html' %}
+        <div class="max-w-4xl mx-auto bg-white mt-10 shadow-md p-10">
+            <h1 class="font-bold text-lg text-neutral-600 mb-8 flex justify-center">Текущая версия</h1>
+            <div class="flex flex-col gap-4 ">
+                <p class="font-bold text-lg text-blue-800">Название</p>
+                <p class="text-base text-neutral-900">{{document.name}}</p>
+                <p class="font-bold text-lg text-blue-800">Содержание</p>
+                <p class="text-base text-neutral-900">{{document.content}}</p>
+                <p class="font-bold text-lg text-blue-800">Статус</p>
+                {% if document.is_deleted %}
+                    <p class="text-base text-neutral-900">Помечен на удаление</p>
+                {% else %}
+                    <p class="text-base text-neutral-900">Активен</p>
+                {% endif %}
+            </div>
+            {% if document.content == previous_version.content and document.name == previous_version.name and document.is_deleted == previous_version.is_deleted %}
+                <h1 class="font-bold text-lg text-neutral-600 mb-8 flex justify-center">История правок отсутсвует</h1>
+            {% else %}
+                <h1 class="font-bold text-lg text-neutral-600 mb-8 flex justify-center">Предыдущая версия</h1>
+                <div class="flex flex-col gap-4 ">
+                    <p class="font-bold text-lg text-blue-800">Название</p>
+                    <p class="text-base text-neutral-900">{{previous_version.name}}</p>
+                    <p class="font-bold text-lg text-blue-800">Содержание</p>
+                    <p class="text-base text-neutral-900">{{previous_version.content}}</p>
+                    <p class="font-bold text-lg text-blue-800">Статус</p>
+                    {% if previous_version.is_deleted %}
+                        <p class="text-base text-neutral-900">Помечен на удаление</p>
+                    {% else %}
+                        <p class="text-base text-neutral-900">Активен</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+{% endblock content %}
